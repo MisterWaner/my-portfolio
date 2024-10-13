@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono, Roboto } from "next/font/google";
+import { Oswald, Roboto } from "next/font/google";
 import "./globals.css";
 
 const roboto = Roboto({
@@ -9,11 +9,11 @@ const roboto = Roboto({
     variable: "--font-roboto",
 });
 
-const jetbrainsMono = JetBrains_Mono({
-    weight: ["400", "500", "700", "800"],
+const oswald = Oswald({
+    weight: ["400", "500", "700"],
     subsets: ["latin"],
     display: "swap",
-    variable: "--font-jetbrains-mono",
+    variable: "--font-oswald",
 });
 
 export const metadata: Metadata = {
@@ -28,9 +28,13 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={`${roboto.className} bg-orange-900`}>{children}</body>
+            <body
+                className={`${roboto.className} bg-gradient-to-br from-slate-950 to-indigo-950 h-screen bg-fixed text-white`}
+            >
+                {children}
+            </body>
         </html>
     );
 }
 
-export { roboto, jetbrainsMono };
+export { roboto, oswald };
