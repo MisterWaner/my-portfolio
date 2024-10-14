@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Oswald, Roboto } from "next/font/google";
+import Header from "@/components/Header/Header";
 import "./globals.css";
 
 const roboto = Roboto({
@@ -27,10 +28,11 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
+        <html lang="en" className="scroll-smooth">
             <body
                 className={`${roboto.className} bg-gradient-to-br from-slate-950 to-indigo-950 h-screen bg-fixed text-white`}
             >
+                <Header />
                 {children}
             </body>
         </html>
