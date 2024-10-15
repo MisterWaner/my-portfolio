@@ -1,3 +1,9 @@
+const links = [
+    { name: "Accueil", href: "/" },
+    { name: "À propos", href: "/#about" },
+    { name: "Mes Projets", href: "/#projects" },
+];
+
 export default function Nav({
     open,
     handleClick,
@@ -14,33 +20,19 @@ export default function Nav({
             <ul
                 className={` list-none w-full flex flex-col items-center justify-between`}
             >
-                <li className="my-10 mx-0">
-                    <a
-                        className="w-full rounded-sm py-2 px-4 transition-all duration-300 ease-in-out text-slate-50 hover:bg-slate-50/20 hover:text-white hover:cursor-pointer"
-                        href="/"
-                        onClick={handleClick}
-                    >
-                        Accueil
-                    </a>
-                </li>
-                <li className="my-10 mx-0">
-                    <a
-                        className="w-full rounded-sm py-2 px-4 transition-all duration-300 ease-in-out text-slate-50 hover:bg-slate-50/20 hover:text-white hover:cursor-pointer"
-                        href="/#about"
-                        onClick={handleClick}
-                    >
-                        À propos
-                    </a>
-                </li>
-                <li className="my-10 mx-0">
-                    <a
-                        className="w-full rounded-sm py-2 px-4 transition-all duration-300 ease-in-out text-slate-50 hover:bg-slate-50/20 hover:text-white hover:cursor-pointer"
-                        href="/#projects"
-                        onClick={handleClick}
-                    >
-                        Mes Projets
-                    </a>
-                </li>
+                {links.map((link, idx) => {
+                    return (
+                        <li className="my-10 mx-0" key={idx}>
+                            <a
+                                className="w-full rounded-sm py-2 px-4 transition-all duration-300 ease-in-out text-slate-50 hover:bg-slate-50/20 hover:text-white hover:cursor-pointer"
+                                href={link.href}
+                                onClick={handleClick}
+                            >
+                                {link.name}
+                            </a>
+                        </li>
+                    );
+                })}
             </ul>
         </nav>
     );
